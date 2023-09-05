@@ -75,7 +75,6 @@ document.addEventListener("DOMContentLoaded", ()=>{
         const replacedContent = replaceTitleWithQuestionMarks(pageTitle, pageContent);
 
         content.innerHTML = "<strong><i>The page content is:</i></strong> " + replacedContent;
-        console.log(pageTitle);
         doneButton.addEventListener("click",()=>{
             if(guessTitle.value === pageTitle){
                 alert("You won!");
