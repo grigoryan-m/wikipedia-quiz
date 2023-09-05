@@ -25,6 +25,6 @@ All the articles are from english wiki, but i am planning to add language choosi
 
 If you loose, game will show you correct answer.
 
-Input has a article title as [*] symbols, so you always know how many words are in the title and how many symbols are in each word.
+Input has an article title as [*] symbols, so you always know how many words are in the title and how many symbols are in each word.
 
 Hope you have fun playing, but I guess you will just suffer.
