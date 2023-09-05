@@ -28,7 +28,15 @@ function replaceTitleWithQuestionMarks(title, content) {
 document.addEventListener("DOMContentLoaded", ()=>{
     const guessTitle = document.getElementById("guessTitle");
     const content = document.getElementById("content");
+    const articleLengthInput = document.getElementById("nextArticleLength");
+    const articleLength = document.getElementById("articleLength");
+    const doneButton = document.getElementById("doneButton");
 
+    
+    articleLength.innerText = articleLengthInput.value;
+    articleLengthInput.addEventListener("input", ()=>{
+        articleLength.innerText = articleLengthInput.value;
+    });
 
     fetch(apiUrl)
     .then((response) => response.json())
@@ -53,12 +61,22 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
         // Extract and display the page title and content
         const pageTitle = page.title;
-        const pageContent = page.extract.substring(0, 200); // Display the first 200 characters
+        const pageContent = page.extract.substring(0, articleLengthInput.value); // Display the first 200 characters
 
         // Replace occurrences of the title with "???" in the content
         const replacedContent = replaceTitleWithQuestionMarks(pageTitle, pageContent);
 
         content.innerHTML = "<strong><i>The page content is:</i></strong> " + replacedContent;
+        console.log(pageTitle);
+        doneButton.addEventListener("click",()=>{
+            if(guessTitle.value === pageTitle){
+                alert("You won!");
+            }else{
+                alert(`You are wrong :(\nCorrect answer was: ${pageTitle}`);
+            }
+            guessTitle.value = '';
+            location.reload();
+        });
     })
     .catch((error) => {
         console.error("An error occurred while fetching Wikipedia content:", error);

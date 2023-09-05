@@ -1,3 +1,8 @@
+*{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
 .wrapper{
     width: 100vw;
     height: 100vh;
@@ -7,8 +12,9 @@
 }
 .panel{
     width: 600px;
-    height: 600px;
-    max-width: calc(100% - 20px);
+    max-height: 800px;
+    min-height: 400px;
+    max-width: calc(100% - 50px);
     background-color: #403F4C;
     color: white;
     padding: 15px;
@@ -21,15 +27,30 @@
     padding: 10px;
     border-radius: 5px;
     margin-bottom: 15px;
+    min-width: 60%;
+    text-align: center;
 }
 #doneButton{
     cursor: pointer;
     padding: 5px;
+    margin-bottom: 15px;
 }
 .controls{
-    
+    margin-top: auto;
+    width: 100%;
+    min-height: 50px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 hr{
     border-top: 1px solid rgb(94, 94, 94);
     width: 100%;
+}
+.controls input, .controls p{
+    margin-left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    margin-top: 20px;
 }

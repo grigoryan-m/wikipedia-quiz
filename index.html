@@ -9,12 +9,13 @@
 <body>
     <div class="wrapper">
         <div class="panel">
-            <input type="text" id="guessTitle">
+            <input type="text" id="guessTitle" placeholder="Guess title... (Leave empty to skip)">
             <button id="doneButton">Done!</button>
             <p id="content"></p>
-            <hr/>
             <div class="controls">
-                <input type="range" id="nextArticleLength" min="200" max="500">
+                <hr/>
+                <p><label for="nextArticleLength">Article length: <b id="articleLength">200</b></label></p>
+                <input type="range" id="nextArticleLength" min="200" max="500" val="200">
             </div>
         </div>
     </div>
