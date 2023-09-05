@@ -63,6 +63,14 @@ document.addEventListener("DOMContentLoaded", ()=>{
         const pageTitle = page.title;
         const pageContent = page.extract.substring(0, articleLengthInput.value); // Display the first 200 characters
 
+        const pageTitleArray = pageTitle.split(" ");
+        guessTitle.placeholder = '';
+        pageTitleArray.forEach(word => {
+            for(let i = 0; i < word.length; i++){
+                guessTitle.placeholder += "*";
+            }
+            guessTitle.placeholder += " ";
+        });
         // Replace occurrences of the title with "???" in the content
         const replacedContent = replaceTitleWithQuestionMarks(pageTitle, pageContent);
 
@@ -76,6 +84,18 @@ document.addEventListener("DOMContentLoaded", ()=>{
             }
             guessTitle.value = '';
             location.reload();
+        });
+        document.addEventListener("keydown", (event)=>{
+            if(event.keyCode === 13){
+                event.preventDefault();
+                if(guessTitle.value === pageTitle){
+                    alert("You won!");
+                }else{
+                    alert(`You are wrong :(\nCorrect answer was: ${pageTitle}`);
+                }
+                guessTitle.value = '';
+                location.reload();
+            }
         });
     })
     .catch((error) => {
